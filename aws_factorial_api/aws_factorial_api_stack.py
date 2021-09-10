@@ -19,6 +19,7 @@ class AwsFactorialApiStack(cdk.Stack):
             zone_name="to-assignment.net",
         )
 
+        # TODO Add alerting
         ecs_patterns.ApplicationLoadBalancedFargateService(
             self,
             "factorialApiService",
