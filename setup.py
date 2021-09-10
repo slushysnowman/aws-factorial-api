@@ -6,14 +6,14 @@ with open("README.md") as fp:
 
 
 setuptools.setup(
-    name="aws_csv_processor",
+    name="aws_factorial_api",
     version="0.0.1",
-    description="A Python CDK project which deploys a Lambda that processes a CSV uploaded to an S3 bucket, and puts it in a DynamoDB table",
+    description="A Python CDK project which deploys a container to ECS fargate, exposed via Application Load Balancer",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Tom O'Brien",
-    package_dir={"": "aws_csv_processor"},
-    packages=setuptools.find_packages(where="aws_csv_processor"),
+    package_dir={"": "aws_factorial_api"},
+    packages=setuptools.find_packages(where="aws_factorial_api"),
     install_requires=["aws-cdk.core==1.122.0"],
     python_requires=">=3.6",
     classifiers=[

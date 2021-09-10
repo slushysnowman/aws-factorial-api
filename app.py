@@ -3,10 +3,10 @@ import os
 
 from aws_cdk import core as cdk
 
-from aws_csv_processor.aws_csv_processor_stack import AwsCsvProcessorStack
+from aws_factorial_api.aws_factorial_api_stack import AwsFactorialApiStack
 
 
 app = cdk.App()
-AwsCsvProcessorStack(app, "AwsCsvProcessorStack")
+AwsFactorialApiStack(app, "AwsFactorialApiStack")
 
 app.synth()
