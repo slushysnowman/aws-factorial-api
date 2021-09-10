@@ -27,6 +27,7 @@ In a normal scenario I probably also wouldn't use an ecs_pattern as I prefer fin
 ### Application Load Balancer
 * Load balancer was a requirement for this assignment.
 * Normally for this use case I would have used an API gateway as it ends up cheaper since this is a no/low volume application, but that wasn't specified
+* Using a load balancer per service is normally super inefficient - If I was setting up multiple applications making use of load balancers I'd probably setup a central one and use that for them all
 * Load balancer is configured with 2 listeners
 * * HTTP - redirects to HTTPS
 * * HTTPS - forwards traffic to the API container
