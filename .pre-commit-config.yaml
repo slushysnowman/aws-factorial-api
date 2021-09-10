@@ -15,3 +15,7 @@ repos:
     rev: 1.7.0
     hooks:
     -   id: bandit
+-   repo: https://github.com/hadolint/hadolint
+    rev: v2.7.0
+    hooks:
+      - id: hadolint
