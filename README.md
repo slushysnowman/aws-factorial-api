@@ -33,6 +33,7 @@ In a normal scenario I probably also wouldn't use an ecs_pattern as I prefer fin
 * Load balancer is configured with 2 listeners
 * * HTTP - redirects to HTTPS
 * * HTTPS - forwards traffic to the API container
+* No authentication has been added as it was felt that this wasn't necessary for this very basic API
 
 ### ECS Fargate
 * Fargate was chosen as it is a very simple setup, with no complexity to maintain - perfect for this simple application
