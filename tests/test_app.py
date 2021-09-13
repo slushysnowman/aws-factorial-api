@@ -1,7 +1,5 @@
 import unittest
 
-# import flaskr
-
 from container.app.app import app
 
 
