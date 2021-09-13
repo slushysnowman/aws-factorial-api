@@ -9,7 +9,8 @@ def return_factorial():
     if "number" in request.args:
         try:
             number = int(request.args["number"])
-            return jsonify(factorial(number))
+            answer = {"factorial": factorial(number)}
+            return jsonify(answer)
         except ValueError:
-            return "Invalid value", 403
-    return "Please supply number parameter", 403
+            return "Invalid value", 400
+    return "Please supply number parameter", 400
