@@ -7,7 +7,9 @@ When a number parameter is passed to the address via a GET, the factorial of the
 
 ## Choices/Context
 
-Rough sketch of architecture can be seen here
+Rough sketch of architecture can be seen below
+
+![architecture](architecture/images/aws-factorial-api.drawio.png)
 
 ### Infrastructure-as-code - Python CDK
 * Python CDK was chosen to be used to provision AWS infrastructure
@@ -53,11 +55,16 @@ In a normal scenario I probably also wouldn't use an ecs_pattern as I prefer fin
 * * Honestly - first time using Flask as generally for APIs I use Lambda - so my usage isn't very advanced, but it was nice to have an excuse to experiment with Flask
 * The internals of how this works are very simple. Now, there are many routes I could have gone down to return the factorial of the integer provided - recursion/iteration etc. But honestly, it makes no sense to do this when there is a default library available which does exactly that. So in the end I opted to use `math.factorial` to determine the factorial.
 
+Basic unit tests are in place to test the functionality.
+
 ### CI/CD & pre-commit hooks
 CI/CD has not been setup due to lack of time.
 
 However, pre-commit hooks do some basic checks on all commits. Documentation for this can be found here: https://pre-commit.com/
 Pre-commit configuration can be found in `.pre-commit-config.yaml` - here you can see which pre-commit hooks are enabled
+
+### Alerts
+Not defined due to
 
 ## Prerequisites
 ### Setting up AWS account
@@ -85,6 +92,11 @@ Pre-commit configuration can be found in `.pre-commit-config.yaml` - here you ca
 
 This can also be run manually to check all files from within the venv: `pre-commit run --all-files`
 
+### Run unit tests
+```
+./run-unit-tests.sh
+```
+
 ### Deploying from local
 * NOTE - `cdk bootstrap` needs to have been run first for this to work
 * Run `cdk synth` to check that cdk setup is valid
@@ -104,6 +116,6 @@ docker run factorial-api:dev
 You can then head to http://172.17.0.2:5000/api/v1/factorial?number=2
 
 ## API in AWS
-Available at factorial.to-assignment.net/api/v1/factorial?number=50
+Available at https://factorial.to-assignment.net/api/v1/factorial?number=50
 
 Can be tested for various numbers by changing the number parameter
