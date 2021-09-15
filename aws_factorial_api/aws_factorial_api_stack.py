@@ -20,7 +20,7 @@ class AwsFactorialApiStack(cdk.Stack):
         )
 
         # TODO Add alerting
-        ecs_patterns.ApplicationLoadBalancedFargateService(
+        factorial_api = ecs_patterns.ApplicationLoadBalancedFargateService(
             self,
             "factorialApiService",
             service_name="factorialApiService",
@@ -34,4 +34,8 @@ class AwsFactorialApiStack(cdk.Stack):
             protocol=elbv2.ApplicationProtocol.HTTPS,
             redirect_http=True,
             desired_count=2,
+        )
+
+        factorial_api.target_group.configure_health_check(
+            path="/api/v1/factorial?number=5", port="5000"
         )
