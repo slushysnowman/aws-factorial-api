@@ -36,6 +36,4 @@ class AwsFactorialApiStack(cdk.Stack):
             desired_count=2,
         )
 
-        factorial_api.target_group.configure_health_check(
-            path="/api/v1/factorial?number=5", port="5000"
-        )
+        factorial_api.target_group.configure_health_check(path="/status", port="5000")
